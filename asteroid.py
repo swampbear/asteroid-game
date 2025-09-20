@@ -8,7 +8,10 @@ class Asteroid(CircleShape):
         super().__init__(x,y,radius)
 
     def draw(self, screen):
-            pygame.draw.circle(screen,"white",self.position, self.radius, 2)
+        pygame.draw.circle(screen,"white",self.position, self.radius, 2)
+        image = pygame.image.load("./assets/eliastroid.png").convert_alpha()
+        scaled = pygame.transform.scale(image, (self.radius*3, self.radius*3))
+        screen.blit(scaled,(self.position.x-self.radius*1.5, self.position.y-self.radius*1.15))
         
     def update(self, dt):
             self.position += (self.velocity * dt)
