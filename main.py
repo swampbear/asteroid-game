@@ -1,4 +1,5 @@
 import pygame
+from pygame import mixer
 from constants import *
 from player import Player
 from asteroid import Asteroid
@@ -11,6 +12,10 @@ def main():
     print(f"Screen width: {SCREEN_WIDTH}")
     print(f"Screen height: {SCREEN_HEIGHT}")
     pygame.init()
+    pygame.mixer.init()
+    mixer.music.load("./assets/beatbox-elias.mp3")
+    mixer.music.set_volume(0.7)
+    mixer.music.play(loops=-1)
     isDone = False
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
